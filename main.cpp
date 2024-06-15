@@ -8,14 +8,7 @@ int main() {
     bool opt = choseOption();
     std::ifstream infile = openFile(name);   // opening and checking the file to make sure it is valid
     std::ofstream outfile = createFile(name, opt);   // creating a file to pass the encrypted text over
-
-    if(opt == true){
-        encryptEngine(infile, outfile);  // encrypting the text from infile and putting it into the outfile
-    } 
-    else if(opt == false){
-        decryptEngine(infile, outfile);  // decrypting text from infile and putting it into outfile
-    }
-    
+    opt == true ? encryptEngine(infile, outfile) : decryptEngine(infile, outfile);  // changed this to make use of the conditional operator instead of a if-else statement
     infile.close();
     outfile.close();
 
